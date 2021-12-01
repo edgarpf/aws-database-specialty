@@ -1,1 +1,13 @@
-# aws-database-specialty
+# AWS Certified Database – Specialty
+* If you want to migrate a RDS for PostgreSQL to Aurora create an Aurora Replica from the existing production RDS for PostgreSQL instance. Stop the writes on the master, check that the replication lag is zero, and then promote the Aurora Replica as a standalone Aurora PostgreSQL DB cluster.
+* You are experiencing performance issues when saving data in an Amazon ElastiCache for Redis cluster with cluster mode disabled. The performance issues are occurring during the cluster's backup window. The cluster runs in a replication group containing three nodes. Memory on the nodes is fully utilized. The solution:
+  * Configure the backup job to take a snapshot of a read replica.
+  * Increase the reserved-memory-percent parameter value. 
+* To encripyt RDS MySQL Create a snapshot of the database. Create an encrypted copy of the snapshot and Create a new database from the encrypted snapshot.
+* To make a alerting and a monitoring strategy for SQL Server database installed in a EC2 instance you can configure Amazon CloudWatch Application Insights for .NET and SQL Server to monitor and detect signs of potential problems. Configure CloudWatch Events to send notifications to an Amazon SNS topic.
+* Add more storage space to the DB instance using the ModifyDBInstance action if yu run out of storage space in a MySQL RDS.
+* To support proper traceability, governance, and compliance, each database administration team member must start using individual, named accounts. Furthermore, longterm database user credentials should not be used. For that Enable IAM database authentication on the Aurora cluster. Create a database user for eachv team member without a password. Attach an IAM policy to each administrator’s IAM user account that grants the connect privilege using their database user account.
+* Use Amazon DynamoDB global tables and configure DynamoDB auto scaling for the tables if you want to run an application in several regions and low-latency.
+* Schedule an AWS Lambda function to create an hourly snapshot of the DB instance and another Lambda function to copy the snapshot to the second Region. For disaster recovery, create a new RDS Multi-AZ DB instance from the last snapshot. With that you can restore a database in a different region within 2 hours. 
+* Take a manual snapshot of the source DB instance and share the snapshot privately with the new account. Specify the snapshot ARN in an RDS resource in an AWS CloudFormation template and use StackSets to deploy to the new account. ow you can achieve centrally manage resource provisioning for its development teams across multiple accounts.
+* 
