@@ -38,9 +38,9 @@
 * Increase the size allocated to the RDS DB instance storage to reduce latency in RDS with general purpose SSD.
 * DynamoDB deletes expired items on a best-effort basis to ensure there's enough throughput for other data operations. Depending on the size and activity level of a table, an expired item's actual delete operation can vary. Because TTL is meant to be a background process, the nature of the capacity used to expire and delete items via TTL is variable (but free of charge). TTL typically deletes expired items within 48 hours of expiration. Processing takes place automatically, in the background, and doesn't affect read or write traffic to the table.
 * An ElastiCache Redis cluster provides varying levels of data durability, performance, and cost for implementing disaster recovery or fault tolerance of your cached data. You can choose the following options to improve the data durability of your ElastiCache cluster:
-  * - Daily automatic backups
-  * - Manual backups using Redis append-only file (AOF)
-  * - Setting up a Multi-AZ with Automatic Failover
+  * Daily automatic backups
+  * Manual backups using Redis append-only file (AOF)
+  * Setting up a Multi-AZ with Automatic Failover
 * Check if the client-side application's time-to-live is set too high and is caching the old DNS data. This can cause the connection failure for many minutes.
 * You can use the profiler in Amazon DocumentDB (with MongoDB compatibility) to log the execution time and details of operations that were performed on your cluster. The profiler is useful for monitoring the slowest operations on your cluster to improve individual query performance and overall cluster performance.
 * With the ***DeletionPolicy*** attribute, you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a ***DeletionPolicy*** attribute for each resource that you want to control. If a resource has no ***DeletionPolicy*** attribute, AWS CloudFormation deletes the resource by default.
@@ -80,9 +80,9 @@ Backtracking allows you to rewind the DB cluster to the time you specify. When y
   * 2) You can backtrack a DB cluster quickly. Restoring a DB cluster to a point in time launches a new DB cluster and restores it from backup data or a DB cluster snapshot, which can take hours. Backtracking a DB cluster doesn't require a new DB cluster and rewinds the DB cluster in minutes.
   * 3) You can explore earlier data changes. You can repeatedly backtrack a DB cluster back and forth in time to help determine when a particular data change occurred. For example, you can backtrack a DB cluster for three hours and then backtrack forward in time for one hour. In this case, the backtrack time is two hours before the original time.
 * For data protection, AWS recommends that you protect your AWS account credentials and set up principals with AWS Identity and Access Management (IAM). Doing this means that each user is given only the permissions necessary to fulfill their job duties. It is also recommended that you secure your data in the following ways:
-  * - Use multi-factor authentication (MFA) with each account.
-  * - Use SSL/TLS to communicate with AWS resources.
-  * - Set up API and user activity logging with AWS CloudTrail.
-  * - Use AWS encryption solutions, along with all default security controls within AWS services.
-  * - Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3.
+  * Use multi-factor authentication (MFA) with each account.
+  * Use SSL/TLS to communicate with AWS resources.
+  * Set up API and user activity logging with AWS CloudTrail.
+  * Use AWS encryption solutions, along with all default security controls within AWS services.
+  * Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3.
 * If yo need to migrate large LOBs configure an AWS DMS task to migrate the tables without LOBs. Configure another AWS DMS task using limited LOB mode with a LobMaxSize setting of 100MB to migrate LOB data to the target RDS instance.
