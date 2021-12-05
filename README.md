@@ -130,3 +130,11 @@ In a typical failover situation, you might see a temporary but large performance
   * An existing AWS DMS task
   * A completed AWS DMS task
   * Revalidation from the table statistics section of the AWS DMS task
+* You can simulate a disk failure for an Aurora DB cluster using this fault injection query:
+  * ALTER SYSTEM SIMULATE DISK FAILURE
+* DynamoDB table backup is created asynchronously and DynamoDB backups do not guarantee causal consistency across items.
+* For Aurora MySQL, you can't delete a DB instance in a DB cluster if both of the following conditions are true:
+  * The DB cluster is a read replica of another Aurora DB cluster
+  * The DB instance is the only instance in the DB cluster.
+* To delete a DB instance in this case, first promote the DB cluster so that it's no longer a read replica. After the promotion completes, you can delete the final DB instance in the DB cluster.
+* If you disable point-in-time recovery and later re-enable it on a table, you reset the start time for which you can recover that table. As a result, you can only immediately restore that table using the LatestRestorableDateTime.
