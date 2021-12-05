@@ -100,4 +100,33 @@ To speed up queries on non-key attributes, you can create a global secondary ind
 Creating a read replica in a different AWS Region from the source instance is similar to creating a replica in the same AWS Region. However, you can only create a cross-Region Amazon RDS read replica from a source Amazon RDS DB instance that is not a read replica of another Amazon RDS DB instance.
 * Amazon RDS uses the Amazon Simple Notification Service (Amazon SNS) to provide notification when an Amazon RDS event occurs. These notifications can be in any notification form supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP endpoint. Amazon RDS groups these events into categories that you can subscribe to so that you can be notified when an event in that category occurs. You can subscribe to an event category for a DB instance, DB snapshot, DB parameter group, or DB security group.
 * Redis and Memcached are popular, open-source, in-memory data stores. Although they are both easy to use and offer high performance, there are important differences to consider when choosing an engine. Memcached is designed for simplicity while Redis offers a rich set of features that make it effective for a wide range of use cases. In terms of commands execution, Redis is mostly a single-threaded server while memcached is multithreaded. 
-* 
+* For fast recovery of the writer DB instance in your Aurora PostgreSQL clusters if there's a failover, use cluster cache management for Amazon Aurora PostgreSQL. Cluster cache management ensures that application performance is maintained if there's a failover.
+In a typical failover situation, you might see a temporary but large performance degradation after failover. This degradation occurs because when the failover DB instance starts, the buffer cache is empty. An empty cache is also known as a cold cache. A cold cache degrades performance because the DB instance has to read from the slower disk, instead of taking advantage of values stored in the buffer cache.
+* If the replica ***SQL_THREAD*** is the source of replication delays, those delays could be due to the following reasons:
+  * Long-running queries on the primary DB instance
+  * Insufficient DB instance class size or storage
+  * Parallel queries executed on the primary DB instance
+  * Binary logs synced to the disk on the replica DB instance
+  * Binlog_format on the replica is set to ROW
+  * Replica creation lag
+* In the ***IO:XactSync*** wait event, a session is issuing a COMMIT or ROLLBACK, requiring the current transaction’s changes to be persisted. Aurora is waiting for Aurora storage to acknowledge persistence.
+* Launch and configure a ***snapshot copy grant*** for a master key in another AWS region. Enable cross-region snapshots in the Redshift cluster to copy snapshots of the cluster to the other region. With that a backup cluster must be highly available and fault-tolerant even in the event of an AWS region outage.
+* When you create an on-demand backup, a time marker of the request is cataloged. The backup is created asynchronously by applying all changes until the time of the request to the last full table snapshot. Backup requests are processed instantaneously and become available for restore within minutes. When you do a restore, you can change the following table settings:
+  * Global secondary indexes (GSIs)
+  * Local secondary indexes (LSIs)
+  * Billing mode
+  * Provisioned read and write capacity
+  * Encryption settings
+* However, some settings are not carried over on the restored table and you must manually configure them after restoring.
+  * You must manually set up the following on the restored table:
+  * Auto scaling policies
+  * AWS Identity and Access Management (IAM) policies
+  * Amazon CloudWatch metrics and alarms
+  * Tags
+  * Stream settings
+  * Time to Live (TTL) settings
+* AWS Database Migration Services (DMS) provides support for data validation to ensure that your data was migrated accurately from the source to the target. If you enable it for a task, AWS DMS begins comparing the source and target data immediately after a full load is performed for a table, and reports any mismatches. Also, for a CDC-enabled task, AWS DMS compares the incremental changes and reports any mismatches. Data validation can be done during:
+  * A new AWS DMS task
+  * An existing AWS DMS task
+  * A completed AWS DMS task
+  * Revalidation from the table statistics section of the AWS DMS task
