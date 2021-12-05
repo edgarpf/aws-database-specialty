@@ -153,3 +153,19 @@ In a typical failover situation, you might see a temporary but large performance
 * DB clusters that are encrypted can't be modified to disable encryption. You can't convert an unencrypted DB cluster to an encrypted one. However, you can restore an unencrypted Aurora DB cluster snapshot to an encrypted Aurora DB cluster. To do this, specify a KMS encryption key when you restore from the unencrypted DB cluster snapshot.
 * You can require that connections to your PostgreSQL DB instance use SSL by using the ***rds.force_ssl*** parameter. By default, the ***rds.force_ssl*** parameter is set to 0 (off). You can set the ***rds.force_ssl parameter*** to 1 (on) to require SSL for connections to your DB instance.
 * AWS retains log data published to CloudWatch Logs for an indefinite period unless you specify a retention period.
+* Each developer can perform DDL operations for the schema changes on the MySQL read replica once the read replica is in sync with its primary DB instance. Then the developer can promote the read replica and direct the application to use the promoted instance during the development phase. This solution isolates the schema changes done by each developer to their own promoted instance. This also avoids the problem of keeping track of the "correct restore point" that the team faced while using the same DB instance.
+* To share an encrypted Amazon RDS DB snapshot with another account:
+  * Add the target account to a custom (non-default) KMS key.
+  * Copy the snapshot using the customer managed key, and then share the snapshot with the target account.
+  * Copy the shared DB snapshot from the target account.
+* You can use Aurora Read Replicas to migrate from an Amazon RDS DB Instance for MySQL to Amazon Aurora. The migration process begins by creating a DB snapshot of the existing DB Instance and then using it as the basis for a fresh Aurora Read Replica. After the replica has been set up, replication is used to bring it up to date with respect to the source. Once the replication lag drops to 0, the replication is complete. At this point, you can make the Aurora Read Replica into a standalone Aurora DB cluster and point your client applications at it.
+* Applications that need to perform many kinds of queries, using a variety of different attributes for their query criteria should use Global Secondary Indexes.
+* If the writes are throttled on the Global Secondary Indexes, then the main table will be throttled, even though the Write Capacity Units on the main tables are fine.
+* A Global Secondary Index contains a selection of attributes from the base table which are organized by a primary key that is different from that of the table.
+* Multi-AZ deployments for RDS MySQL follow synchronous replication whereas Multi-AZ deployments for Aurora MySQL follow asynchronous replication.
+* Read Replicas can be manually promoted to a standalone database instance for RDS MySQL whereas Read Replicas for Aurora MySQL can be promoted to the primary instance.
+* The primary and standby DB instances are upgraded at the same time for RDS MySQL Multi-AZ. All instances are upgraded at the same time for Aurora MySQL.
+* To secure ElasticCache:
+  * Configure the ElastiCache cluster to have both in-transit as well as at-rest encryption.
+  * Create the cluster with auth-token parameter and make sure that the parameter is included in all subsequent commands to the cluster.
+  * Configure the security group for the ElastiCache cluster with the required rules to allow inbound traffic from the cluster itself as well as from the cluster's clients on port 6379.
