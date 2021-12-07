@@ -183,3 +183,16 @@ In a typical failover situation, you might see a temporary but large performance
 * To copy an encrypted snapshot from one AWS Region to another, you must specify the KMS key identifier of the destination AWS Region.
 * For Amazon Aurora, each Read Replica is associated with a priority tier (0-15). In the event of a failover, Amazon Aurora will promote the Read Replica that has the highest priority (the lowest numbered tier). If two or more Aurora Replicas share the same priority, then Amazon Aurora promotes the replica that is largest in size. 
 * The ***DeleteTable*** operation deletes a table and all of its items. After a ***DeleteTable*** request, the specified table is in the DELETING state until DynamoDB completes the deletion. This is the most cost-efficient option.
+* Amazon RDS for MySQL allows you to create a second-tier read replica from an existing first-tier Read Replica.
+* You can configure RDS source DB instance as a Multi-AZ deployment to avoid I/O suspension that occurs when a Read Replica is initiated.
+* Only ElastiCache for Redis (not Memcached) is HIPAA compliant.
+* For a dynamic parameter, the changes are applied immediately. However, for a static parameter, the change takes effect after you manually reboot the DB instance.
+* Applications that need to perform many kinds of queries, using a variety of different attributes for their query criteria should use Global Secondary Indexes.
+* A custom endpoint for an Aurora cluster represents a set of DB instances that you choose. When you connect to the endpoint, Aurora performs load balancing and chooses one of the instances in the group to handle the connection. An Aurora DB cluster has no custom endpoints until you create one. You can create up to five custom endpoints for each provisioned Aurora cluster.
+* While migrating an Amazon Relational Database Service (Amazon RDS) for Oracle source database to a different AWS Region, AWS suggests that you create the replication instance in the VPC of the target AWS Region. 
+* The default backup retention period is one day if you create the DB instance using the Amazon RDS API.
+* DB Snapshots can be created with the AWS Management Console, CreateDBSnapshot API, or create-db-snapshot command.
+* Disabling automatic backups for a DB instance deletes all existing automated backups for the instance.
+* You can map multiple IAM users or roles to the same database user account.
+* If your application is running on Amazon Elastic Compute Cloud (Amazon EC2), then you can use EC2 instance profile credentials to access the database.
+* IAM database authentication should only be used if your application requires no more than 200 new connections per second.
