@@ -194,3 +194,22 @@ In a typical failover situation, you might see a temporary but large performance
 * You can map multiple IAM users or roles to the same database user account.
 * If your application is running on Amazon Elastic Compute Cloud (Amazon EC2), then you can use EC2 instance profile credentials to access the database.
 * IAM database authentication should only be used if your application requires no more than 200 new connections per second.
+* The automated RDS backup retention period has a maximum configurable value of 35 days.
+* It is impossible to delete the last instance of a read replica DB cluster.  It must be promoted to a standalone DB cluster.
+* mysqldump utility can be used to create a backup of the existing on-premise database. The backup can then be transferred in compressed form to the AWS cloud.  Finally, mysqldump utility can be used to restore the data into an RDS instance.
+* Amazon Aurora Multi-Master cluster offers write capability to multiple instances. In applications where zero downtime is required for database write operations, a multi-master cluster can be used to avoid an outage when a writer instance becomes unavailable.
+* It is possible to create a Route 53 hosted zone and record set to store the DNS endpoints of the RDS read replica instances.  Each endpoint should have the same value for the weighted routing configuration to ensure equal distribution of traffic among the RDS read replicas.
+* DynamoDB Point-in-Time Restore enables recovery of a DynamoDB table across AWS regions. Further, it enables a full table to restore, as well restore of GSI’s and LSI’s.  Restoring a DynamoDB table using Point-in-Time restore consumes no provisioned throughput.  Data transfer charges between the regions are the only costs associated with this solution.
+* Amazon Aurora only supports InnoDB MySQL compatible storage engine.
+* One read capacity unit is equivalent to one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size. One write capacity unit is equivalent to one write per second for an item up to 1 KB in size.
+* CloudFormation Change sets enable the preview of proposed changes to a stack to assess the impact on existing resources. This functionality allows the team to check if any existing databases will be deleted or replaced upon application of the updated CloudFormation template.
+* CloudFormation Change sets enable the preview of proposed changes to a stack to assess the impact on existing resources. This functionality allows the team to check if any existing databases will be deleted or replaced upon application of the updated CloudFormation template.
+* The query operation is used to search items based on primary key values.  The name of the partition key attribute and a single value for that attribute must be provided with the query. The query returns all items with that partition key value. A filter expression parameter can be used to narrow down the results based on some required criteria. A filter expression is applied AFTER a query operation competes, but BEFORE the results are returned to the client. Therefore, a query operation consumes the same amount of read capacity, regardless of whether a filter expression is present. 
+* PrivateLink Gateway endpoint is used to integrate DynamoDB to Amazon VPC without the use of Internet Gateway.
+* PrivateLink Interface Endpoint does not support DynamoDB.
+* Amazon Neptune supports Gremlin and SPARQL query languages.
+* RAID 0 is used to distribute I/O across volumes and achieve increased IOPS and throughput performance.
+* Parallel scans can be used by multiple worker threads in an application to perform a scan of a DynamoDB table much faster.
+* AWS Schema Conversion Tool (SCT) can be used to produce the database migration assessment report.
+* AWS SCT does not include database drivers with the installation.  Database drivers required to connect to the source and target database need to be downloaded and installed as a separate manual step.
+* SPARQL is the query language used with RDF models and supported by Amazon Neptune.
