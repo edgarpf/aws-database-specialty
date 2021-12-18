@@ -229,7 +229,7 @@ In a typical failover situation, you might see a temporary but large performance
 * DocumentDB profiler feature can be enabled to log the details (including execution time) of MongoDB operations to CloudWatch Logs. Then, CloudWatch Logs Insights can be used to analyze the data and investigate slow queries.
 * MongoDB currentOp command can be used to list queries that are either blocked or executing longer than a specified time.
 Reference.
-* creating an AWS Lambda Function to read the file from the S3 bucket and import the data items into the DynamoDB table is the simplest and most cost-efficient method to import CSV data.
+* Creating an AWS Lambda Function to read the file from the S3 bucket and import the data items into the DynamoDB table is the simplest and most cost-efficient method to import CSV data.
 * Write-Through caching strategy updates the cache with every write operation, thus ensuring that the cache always contains the most recent data.
 * If the requirement is to perform strongly consistent queries on a new partition key. In this scenario, a new DynamoDB table must be created as GSI only supports eventual consistency.
 * LSI shares write-capacity with the base table.
