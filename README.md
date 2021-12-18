@@ -233,4 +233,15 @@ Reference.
 * Write-Through caching strategy updates the cache with every write operation, thus ensuring that the cache always contains the most recent data.
 * If the requirement is to perform strongly consistent queries on a new partition key. In this scenario, a new DynamoDB table must be created as GSI only supports eventual consistency.
 * LSI shares write-capacity with the base table.
+* AWS SDK for Java provides direct data type mapping from Date Java data type to DynamoDB String type with date values stored in ISO 8601 format.
+* RDS proxy is a service that can be used to pool simultaneous connections from serverless applications and alleviate the connection management from the RDS database instance.
+* ElastiCache for Redis (Cluster Mode Disabled) clusters support scaling up or down of read capacity by creating or deleting read replicas within the cluster.
+* ElastiCache for Redis with Cluster Mode Enabled clusters provide multiple write-endpoints which can be used to distribute traffic for write-heavy applications.
+* Amazon ElastiCache for Redis with cluster mode disabled cluster consists of a single shard with up to a maximum of 5 read replicas.
+* AWS Workload Qualification Framework (AWS WQF) is a standalone tool that is used during the database migration planning phase to assess migration workloads. It produces an assessment report detailing migration complexity and size and provides migration strategy and tool recommendations.
+* The Aurora Serverless DB cluster can’t have a public IP address. An Aurora Serverless DB cluster can only be accessed from within a VPC. Therefore, we require to connect the AWS Lambda to the private VPC using an elastic network interface.
+* enabling Data API on the Amazon Aurora Serverless cluster allows web-based applications to access the cluster over a secure HTTP endpoint.
+* Amazon RDS root certificates are available for download at https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem.
+* The user must use an authentication token to access Amazon RDS database instances when IAM authentication is configured. To generate a temporary authentication token, aws rds generate-db-auth-token CLI command can be used.
+* For MariaDB, MySQL, and Oracle RDS instances, when the source database is deleted, read replicas in the same region and cross-region read replicas are promoted. For PostgreSQL RDS instances, when the source database is deleted, read replicas in the same region are promoted, and cross-region read replicas are set to replication status “terminated.”
 * 
