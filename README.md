@@ -213,3 +213,24 @@ In a typical failover situation, you might see a temporary but large performance
 * AWS Schema Conversion Tool (SCT) can be used to produce the database migration assessment report.
 * AWS SCT does not include database drivers with the installation.  Database drivers required to connect to the source and target database need to be downloaded and installed as a separate manual step.
 * SPARQL is the query language used with RDF models and supported by Amazon Neptune.
+* You can stop a DB instance for up to seven days when it is in a Multi-AZ configuration.
+* The maximum item size in DynamoDB is 400 KB.
+* CloudWatch Application Insights for .NET and SQL Server collects metrics and logs of .NET and SQL Server applications across the stack (e.g., IIS server, OS, SQL Server database). It collects performance metrics and helps in troubleshooting by automatically correlating errors and creating visual dashboards.
+* The reserved-memory-percent parameter specifies the amount of memory available for non-data use. Setting or increasing this parameter value for cluster nodes can improve performance during backups since more memory will be allocated for the backup processes.
+* ***–ssl_mode=verify-full*** ensures that the client connection is encrypted and performs validation of the certificate to ensure that the server is trusted. This is for Aurora MySQL DB Cluster..
+* Setting the trustServerCertificate property to false ensures that the client will validate the TLS certificate and confirm that the server is the correct server to connect to. This is for a SQL Server on the Amazon RDS database
+* DynamoDB does not have an equivalent command to the SQL TRUNCATE command. The only way to delete all data in a DynamoDB table is to perform a table scan to fetch all the item keys. Then you must iterate through the keys and delete each item using the delete-item command.
+* ***ssl_server_dn_match*** property must be set to ***true*** on the client to perform certificate verification and ensure that the certificate is from the server. This fot Sql Server RDS.
+* The first and most important step in designing a DynamoDB application is to identify the data query access patterns that the application utilizes and model the database based on those patterns.
+* The Global Datastore feature for ElastiCache can be used to create cross-region read replica clusters.7
+* AWS DMS does not migrate indexes. For large data migrations, it is most efficient to pre-create indexes in the target Amazon DocumentDB cluster before migrating the data.
+* Setting the “secondaryPreferred” read preference option distributes requests to read replicas on DocumentDB. This is recommended as it increases the performance efficiency of the database cluster.
+* ***db.runCommand*** on DocumentDB can be used with explain() method to provide a detailed execution plan of a query and provide insight into the query performance.
+* DocumentDB profiler feature can be enabled to log the details (including execution time) of MongoDB operations to CloudWatch Logs. Then, CloudWatch Logs Insights can be used to analyze the data and investigate slow queries.
+* MongoDB currentOp command can be used to list queries that are either blocked or executing longer than a specified time.
+Reference.
+* creating an AWS Lambda Function to read the file from the S3 bucket and import the data items into the DynamoDB table is the simplest and most cost-efficient method to import CSV data.
+* Write-Through caching strategy updates the cache with every write operation, thus ensuring that the cache always contains the most recent data.
+* If the requirement is to perform strongly consistent queries on a new partition key. In this scenario, a new DynamoDB table must be created as GSI only supports eventual consistency.
+* LSI shares write-capacity with the base table.
+* 
