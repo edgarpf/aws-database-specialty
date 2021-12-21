@@ -244,4 +244,3 @@ Reference.
 * Amazon RDS root certificates are available for download at https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem.
 * The user must use an authentication token to access Amazon RDS database instances when IAM authentication is configured. To generate a temporary authentication token, aws rds generate-db-auth-token CLI command can be used.
 * For MariaDB, MySQL, and Oracle RDS instances, when the source database is deleted, read replicas in the same region and cross-region read replicas are promoted. For PostgreSQL RDS instances, when the source database is deleted, read replicas in the same region are promoted, and cross-region read replicas are set to replication status “terminated.”
-* 
