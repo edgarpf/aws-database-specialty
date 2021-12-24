@@ -220,7 +220,7 @@ In a typical failover situation, you might see a temporary but large performance
 * ***–ssl_mode=verify-full*** ensures that the client connection is encrypted and performs validation of the certificate to ensure that the server is trusted. This is for Aurora MySQL DB Cluster..
 * Setting the trustServerCertificate property to false ensures that the client will validate the TLS certificate and confirm that the server is the correct server to connect to. This is for a SQL Server on the Amazon RDS database
 * DynamoDB does not have an equivalent command to the SQL TRUNCATE command. The only way to delete all data in a DynamoDB table is to perform a table scan to fetch all the item keys. Then you must iterate through the keys and delete each item using the delete-item command.
-* ***ssl_server_dn_match*** property must be set to ***true*** on the client to perform certificate verification and ensure that the certificate is from the server. This fot Sql Server RDS.
+* ***ssl_server_dn_match*** property must be set to ***true*** on the client to perform certificate verification and ensure that the certificate is from the server. This is for Sql Server RDS.
 * The first and most important step in designing a DynamoDB application is to identify the data query access patterns that the application utilizes and model the database based on those patterns.
 * The Global Datastore feature for ElastiCache can be used to create cross-region read replica clusters.
 * AWS DMS does not migrate indexes. For large data migrations, it is most efficient to pre-create indexes in the target Amazon DocumentDB cluster before migrating the data.
