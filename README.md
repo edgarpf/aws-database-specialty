@@ -1,5 +1,4 @@
 # AWS Certified Database – Specialty
-* If you want to migrate a RDS for PostgreSQL to Aurora create an Aurora Replica from the existing production RDS for PostgreSQL instance. Stop the writes on the master, check that the replication lag is zero, and then promote the Aurora Replica as a standalone Aurora PostgreSQL DB cluster.
 * You are experiencing performance issues when saving data in an Amazon ElastiCache for Redis cluster with cluster mode disabled. The performance issues are occurring during the cluster's backup window. The cluster runs in a replication group containing three nodes. Memory on the nodes is fully utilized. The solution:
   * Configure the backup job to take a snapshot of a read replica.
   * Increase the reserved-memory-percent parameter value. 
