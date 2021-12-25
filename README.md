@@ -116,8 +116,7 @@ In a typical failover situation, you might see a temporary but large performance
   * Billing mode
   * Provisioned read and write capacity
   * Encryption settings
-* However, some settings are not carried over on the restored table and you must manually configure them after restoring.
-  * You must manually set up the following on the restored table:
+* However, some settings are not carried over on the restored table and you must manually configure them after restoring. You must manually set up the following on the restored table:
   * Auto scaling policies
   * AWS Identity and Access Management (IAM) policies
   * Amazon CloudWatch metrics and alarms
